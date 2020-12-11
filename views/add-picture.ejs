@@ -1,0 +1,32 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container text-center mt-5">
+
+    
+    <h3>Add Picture</h3>
+    <form action="/add" method="POST" enctype="multipart/form-data">
+        <input type="text" class="form-control mt-2" name="name" placeholder="Name">
+        <% let nameError = validationErrors.find(err => err.param === 'name') %>
+        <% if (nameError) { %>
+            <p class="alert alert-danger">
+                <%= nameError.msg %>
+            </p>
+            <% } %>
+            <input type="file" class="form-control mt-2" name="picture" placeholder="Picture">
+            <% let imageError = validationErrors.find(err => err.param === 'image') %>
+            <% if (imageError) { %>
+                <p class="alert alert-danger">
+                    <%= imageError.msg %>
+                </p>
+                <% } %>
+                <input type="submit" value="Add Picture" class="btn btn-success mt-2">
+            </form>
+            <% if(pictureAdded) { %>
+            <p class="alert alert-success mt-2">
+                Picture added successfully
+            </p>
+            <% } %>
+</div>
+
+<%- include('parts/footer')%>

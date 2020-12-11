@@ -1,0 +1,28 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 mt-5">
+            <img class="mx-auto d-block rounded-circle" src="/<%= pictures[0].user.image %>" style="height: 300px; width: 300px;">
+        </div>
+    </div>
+    <h1 class="text-center"><%= pictures[0].user.username %></h1>
+
+    <div class="hd mt-4">
+        <h3>Photos</h3>
+    </div>
+    <div class="row mt-3">
+        <% for (let i = 0; i < pictures.length; i++) { %>
+            <div class="col col-12 col-md-6 col-lg-4 col-xl-3 mr-2 mt-4 ml-5">
+                <figure class="box" style="width: 20rem;">
+                    <a href="/picture/<%= pictures[i]._id%>">
+                        <img alt="picture" src="/<%= pictures[i].picture%>" class="card-img-top" style="height: 23rem;" class="img-fluid">
+                    </a>
+                </figure>
+            </div>
+        <% } %>
+</div>
+
+
+<%- include('parts/footer')%>

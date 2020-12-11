@@ -1,0 +1,31 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container">
+    <form action="/search" class="text-center">
+        <input type="text" name="name" class="form-control mt-2" placeholder="Enter name">
+        <input type="submit" value="Search" class="btn btn-success mt-2">
+    </form> <br>
+    <% if(searchMode) { %>
+        <div>
+            <% if (pictures.length === 0) { %>
+                <p class="alert alert-danger mt-3">No Photos found</p>
+            <% } else { %>
+                <div class="row">
+                    <% for (let i = 0; i < pictures.length; i++) { %>
+                        <div class="col col-12 col-md-6 col-lg-4 col-xl-3 mr-2 mt-4 ml-5">
+                            <figure class="box" style="width: 20rem;">
+                                <a href="/picture/<%= pictures[i]._id%>">
+                                    <img alt="picture" src="/<%= pictures[i].picture%>" class="card-img-top" style="height: 23rem;" class="img-fluid">
+                                </a>
+                            </figure>
+                        </div>
+                    <% } %>
+                </div>
+            <% } %>
+        </div>
+    <% } %>
+</div>
+
+
+<%- include('parts/footer')%>

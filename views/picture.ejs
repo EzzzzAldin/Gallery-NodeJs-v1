@@ -1,0 +1,21 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+<div class="container">
+    <div class="row ml-3 mt-3">
+        <div class="row pic">
+            <img class="mx-auto d-block rounded-circle border border-dark m-2" src='/<%= pictures.user.image%>' style="height: 50px; width: 50px;">   
+            <a href="/profile/<%= pictures.user._id%>"">
+                <h3 class="m-2"><%= pictures.user.username%></h3>
+            </a>
+        </div>
+    </div>
+            <div class="row">
+                <figure class="col-12 mt-1" style="width: 27rem;">
+                    <img class="mx-auto d-block" src="/<%= pictures.picture%>" style="height: 100%;width: 100%;border-radius: 1rem;">
+                </figure>
+            </div>
+            <h1><%= pictures.name%></h1>
+    
+</div>
+<%- include('parts/footer')%>

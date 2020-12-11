@@ -1,0 +1,16 @@
+<%- include('parts/header')%>
+<%- include('parts/navbar')%>
+
+
+    <div class="row">
+        <% for(let picture of pictures) { %>
+            <div class="col col-12 col-md-6 col-lg-4 col-xl-3 mr-5 mt-4 ml-5">
+                <figure class="box" style="width: 27rem;">
+                    <a href="/picture/<%= picture._id%>">
+                        <img alt="picture" src="/<%= picture.picture%>" class="card-img-top" style="height: 30rem;" class="img-fluid">
+                    </a>
+                </figure>
+            </div>
+        <% } %>
+
+<%- include('parts/footer')%>
